@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-32-w9phd*pzbgvvem943767ax3rh&odlq+q$69$qbb8p3=3m96
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webapp.apps.WebappConfig'
+    'webapp.apps.WebappConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -74,11 +75,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+#DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+#}
+
+DATABASES = {
+    'default': {
+        'ENGINE': "django.db.backends.postgresql_psycopg2",
+        'URL': 'postgresql://postgres:Rgt1ShIUUDOng6oBWyoV@containers-us-west-124.railway.app:6617/railway',
+        'HOST': 'containers-us-west-124.railway.app',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Rgt1ShIUUDOng6oBWyoV',
+        'PORT': '6617',
+
+    }
 }
 
 
